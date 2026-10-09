@@ -15,7 +15,7 @@ from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = json.loads((ROOT / "profile.json").read_text())
-PALETTE = ("#202b36", "#0e4429", "#006d32", "#26a641", "#39d353")
+PALETTE = ("#1e1b35", "#3b236c", "#5b34a1", "#7c3aed", "#a78bfa")
 
 
 class ContributionParser(HTMLParser):
@@ -64,9 +64,9 @@ def frame(width: int, height: int, title: str, body: str) -> str:
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" '
         f'width="{width}" height="{height}" role="img" aria-label="{escape(title)}">\n'
         f'<title>{escape(title)}</title>\n'
-        f'<rect width="{width}" height="{height}" rx="17" fill="#0d1117"/>\n'
+        f'<rect width="{width}" height="{height}" rx="17" fill="#0d1024"/>\n'
         f'<rect x=".5" y=".5" width="{width-1}" height="{height-1}" rx="16.5" '
-        'fill="none" stroke="#303d4c"/>\n'
+        'fill="none" stroke="#5b34a1"/>\n'
         f'{body}</svg>\n'
     )
 
@@ -138,9 +138,9 @@ def heatmap() -> None:
     start = as_of - timedelta(days=(as_of.weekday() + 1) % 7 + 52 * 7)
     days = data["days"]
     body = [
-        '<text x="25" y="35" fill="#39d353" font-family="monospace" '
+        '<text x="25" y="35" fill="#a78bfa" font-family="monospace" '
         'font-size="14">$ ./contributions.sh</text>',
-        f'<text x="25" y="62" fill="#e6edf3" font-family="monospace" '
+        f'<text x="25" y="62" fill="#e5e7eb" font-family="monospace" '
         f'font-size="18" font-weight="bold">{data["total"]:,} contributions in the last year</text>',
     ]
     previous_month = None
@@ -172,9 +172,45 @@ def heatmap() -> None:
     (ROOT / "contrib-heatmap.svg").write_text(frame(880, 250, "GitHub contribution calendar", "\n".join(body)))
 
 
+def snake() -> None:
+    data = json.loads((ROOT / "data" / "contributions.json").read_text())
+    as_of = date.fromisoformat(data["as_of"])
+    start = as_of - timedelta(days=(as_of.weekday() + 1) % 7 + 52 * 7)
+    days = data["days"]
+    body = [
+        '<text x="25" y="31" fill="#a78bfa" font-family="monospace" '
+        'font-size="14">$ ./follow-the-contributions.sh</text>',
+    ]
+    for week in range(53):
+        for weekday in range(7):
+            day = start + timedelta(days=week * 7 + weekday)
+            if day > as_of:
+                continue
+            level = min(4, max(0, int(days.get(day.isoformat(), {}).get("level", 0))))
+            x, y = 39 + week * 15, 51 + weekday * 15
+            body.append(f'<rect x="{x}" y="{y}" width="11" height="11" rx="2" '
+                        f'fill="{PALETTE[level]}"/>')
+    points = [(44.5 + week * 15, 56.5 + weekday * 15)
+              for weekday in range(7)
+              for week in (range(53) if weekday % 2 == 0 else range(52, -1, -1))]
+    path = "M" + " ".join(f"{x:g},{y:g}" if i == 0 else f"L{x:g},{y:g}"
+                          for i, (x, y) in enumerate(points))
+    body.append(f'<path d="{path}" fill="none" stroke="#a78bfa" '
+                'stroke-opacity=".13" stroke-width="2"/>')
+    for segment in range(7, -1, -1):
+        size = 2.9 if segment else 5.2
+        opacity = 0.22 + (7 - segment) * 0.1
+        body.append(f'<circle r="{size}" fill="#c4b5fd" opacity="{opacity:.2f}">'
+                    f'<animateMotion dur="36s" begin="-{1.4-segment*.16:.2f}s" '
+                    f'repeatCount="indefinite" path="{path}"/></circle>')
+    body.append('<text x="25" y="181" fill="#9ca3af" font-family="monospace" '
+                'font-size="10">A little journey across the contribution graph</text>')
+    (ROOT / "contrib-snake.svg").write_text(frame(880, 200, "Animated contribution snake", "\n".join(body)))
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("task", choices=("fetch", "portrait", "card", "heatmap", "all"))
+    parser.add_argument("task", choices=("fetch", "portrait", "card", "heatmap", "snake", "all"))
     args = parser.parse_args()
     if args.task == "fetch":
         fetch()
@@ -184,10 +220,13 @@ def main() -> None:
         card()
     elif args.task == "heatmap":
         heatmap()
+    elif args.task == "snake":
+        snake()
     else:
         portrait()
         card()
         heatmap()
+        snake()
 
 
 if __name__ == "__main__":
