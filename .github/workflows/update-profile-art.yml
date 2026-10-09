@@ -18,13 +18,14 @@ jobs:
           python-version: "3.11"
       - run: python scripts/profile_art.py fetch
       - run: python scripts/profile_art.py heatmap
+      - run: python scripts/profile_art.py snake
       - name: Commit refreshed graph
         run: |
-          if git diff --quiet -- data/contributions.json contrib-heatmap.svg; then
+          if git diff --quiet -- data/contributions.json contrib-heatmap.svg contrib-snake.svg; then
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/contributions.json contrib-heatmap.svg
+          git add data/contributions.json contrib-heatmap.svg contrib-snake.svg
           git commit -m "chore: refresh contribution graph [skip ci]"
           git push
