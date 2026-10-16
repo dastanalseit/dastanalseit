@@ -30,18 +30,6 @@
 
 </div>
 
----
-
-### Contribution activity
-
-<div align="center">
-
-<img src="./contrib-heatmap.svg" width="880" alt="Animated GitHub contribution calendar" />
-
-</div>
-
----
-
 ### Contribution snake
 
 <div align="center">
