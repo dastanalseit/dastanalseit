@@ -1,14 +1,14 @@
 <div align="center">
 
-![Purple wave header](https://capsule-render.vercel.app/api?type=waving&color=0:0B1026,50:512DA8,100:8B5CF6&height=220&section=header&text=Dastan%20Alseit&fontColor=FFFFFF&fontSize=56&fontAlignY=38&desc=Building%20across%20back-end%20%2B%20front-end&descAlignY=60&descSize=18&animation=fadeIn)
+![Green wave header](https://capsule-render.vercel.app/api?type=waving&color=0:052E16,50:15803D,100:4ADE80&height=220&section=header&text=Dastan%20Alseit&fontColor=FFFFFF&fontSize=56&fontAlignY=38&desc=Building%20across%20back-end%20%2B%20front-end&descAlignY=60&descSize=18&animation=fadeIn)
 
-[![Typing introduction](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=2800&pause=850&color=A78BFA&center=true&vCenter=true&width=780&lines=Hi%2C+I%27m+Dastan+%F0%9F%91%8B;Back-end+%2B+front-end+development;Curious+about+machine+learning;I+like+turning+ideas+into+working+products)](https://github.com/dastanalseit)
+[![Typing introduction](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=2800&pause=850&color=4ADE80&center=true&vCenter=true&width=780&lines=Hi%2C+I%27m+Dastan+%F0%9F%91%8B;Back-end+%2B+front-end+development;Curious+about+machine+learning;I+like+turning+ideas+into+working+products)](https://github.com/dastanalseit)
 
-![Location: Astana, Kazakhstan](https://img.shields.io/badge/Astana-Kazakhstan-6D28D9?style=for-the-badge&logo=googlemaps&logoColor=white)
-![Focus: Back-end and Front-end](https://img.shields.io/badge/Focus-Back--end%20%2B%20Front--end-4F46E5?style=for-the-badge)
+![Location: Astana, Kazakhstan](https://img.shields.io/badge/Astana-Kazakhstan-15803D?style=for-the-badge&logo=googlemaps&logoColor=white)
+![Focus: Back-end and Front-end](https://img.shields.io/badge/Focus-Back--end%20%2B%20Front--end-16A34A?style=for-the-badge)
 
 [![GitHub profile](https://img.shields.io/badge/GitHub-dastanalseit-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/dastanalseit)
-[![Follow on GitHub](https://img.shields.io/github/followers/dastanalseit?label=Follow&style=for-the-badge&color=7C3AED&labelColor=1B1534)](https://github.com/dastanalseit?tab=followers)
+[![Follow on GitHub](https://img.shields.io/github/followers/dastanalseit?label=Follow&style=for-the-badge&color=22C55E&labelColor=052E16)](https://github.com/dastanalseit?tab=followers)
 
 </div>
 
@@ -34,7 +34,7 @@
 
 <div align="center">
 
-<img src="./contrib-snake.svg" width="880" alt="Animated purple snake moving across Dastan's GitHub contributions" />
+<img src="./contrib-snake.svg" width="880" alt="Animated green snake moving across Dastan's GitHub contributions" />
 
 </div>
 
