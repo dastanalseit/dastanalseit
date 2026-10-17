@@ -386,6 +386,7 @@
 <rect x="817" y="146" width="11" height="11" rx="2" fill="#142b1e" opacity="0"><animate attributeName="opacity" from="0" to="1" dur=".22s" begin="1.191s" fill="freeze"/><title>2026-10-14: level 0</title></rect>
 <rect x="817" y="161" width="11" height="11" rx="2" fill="#142b1e" opacity="0"><animate attributeName="opacity" from="0" to="1" dur=".22s" begin="1.226s" fill="freeze"/><title>2026-10-15: level 0</title></rect>
 <rect x="817" y="176" width="11" height="11" rx="2" fill="#26a641" opacity="0"><animate attributeName="opacity" from="0" to="1" dur=".22s" begin="1.261s" fill="freeze"/><title>2026-10-16: level 3</title></rect>
+<rect x="817" y="191" width="11" height="11" rx="2" fill="#142b1e" opacity="0"><animate attributeName="opacity" from="0" to="1" dur=".22s" begin="1.296s" fill="freeze"/><title>2026-10-17: level 0</title></rect>
 <text x="8" y="125" fill="#8b949e" font-family="monospace" font-size="10">Mon</text>
 <text x="8" y="155" fill="#8b949e" font-family="monospace" font-size="10">Wed</text>
 <text x="8" y="185" fill="#8b949e" font-family="monospace" font-size="10">Fri</text>
