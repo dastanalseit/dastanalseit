@@ -12,11 +12,6 @@
 
 </div>
 
-### Tech stack
-
-| Area | Tools I've used in my public work |
-|:--|:--|
-| Languages | Python · JavaScript · HTML · CSS |
 
 <div align="center">
 
